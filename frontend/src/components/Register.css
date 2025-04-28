@@ -1,0 +1,110 @@
+/* Conteneur principal de Register */
+/* Syntaxe : .register définit les styles du conteneur */
+/* Rôle : Centre le formulaire, ajoute une marge pour éviter la navbar */
+.register {
+    max-width: 450px;
+    margin: 100px auto 20px; /* Marge supérieure de 100px pour descendre */
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', Arial, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Animation au chargement */
+  /* Syntaxe : .register utilise une animation */
+  /* Rôle : Fait apparaître le formulaire avec un effet de fondu */
+  .register {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Animation de fondu */
+  /* Syntaxe : @keyframes définit une animation */
+  /* Rôle : Anime l’apparition du formulaire */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Titre du formulaire */
+  /* Syntaxe : .register h2 définit les styles du titre */
+  /* Rôle : Met en forme le titre avec une couleur vibrante */
+  .register h2 {
+    text-align: center;
+    color: #2b5876;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  /* Message d’erreur */
+  /* Syntaxe : .register .error définit les styles de l’erreur */
+  /* Rôle : Met en évidence les messages d’erreur */
+  .register .error {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  /* Formulaire */
+  /* Syntaxe : .register form définit les styles du formulaire */
+  /* Rôle : Organise les champs avec un espacement */
+  .register form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Champs du formulaire */
+  /* Syntaxe : .register form input définit les styles des champs */
+  /* Rôle : Style les champs avec des bordures arrondies et un effet de focus */
+  .register form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Effet au focus des champs */
+  /* Syntaxe : .register form input:focus définit les styles au focus */
+  /* Rôle : Ajoute une bordure colorée et une ombre au focus */
+  .register form input:focus {
+    outline: none;
+    border-color: #4e4376;
+    box-shadow: 0 0 8px rgba(78, 67, 118, 0.3);
+  }
+  
+  /* Bouton de soumission */
+  /* Syntaxe : .register form button définit les styles du bouton */
+  /* Rôle : Crée un bouton vibrant avec un dégradé et un effet 3D */
+  .register form button {
+    padding: 12px;
+    background: linear-gradient(45deg, #2b5876, #4e4376);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Effet au survol du bouton */
+  /* Syntaxe : .register form button:hover définit les styles au survol */
+  /* Rôle : Soulève le bouton et intensifie l’ombre */
+  .register form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #4e4376, #2b5876);
+  }
+  
+  /* Effet au clic du bouton */
+  /* Syntaxe : .register form button:active définit les styles au clic */
+  /* Rôle : Simule un enfoncement */
+  .register form button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }

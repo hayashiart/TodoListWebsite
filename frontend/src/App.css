@@ -1,0 +1,142 @@
+/* Conteneur principal de la barre de navigation */
+/* Syntaxe : .nav définit les styles de la navigation */
+/* Rôle : Crée une barre fixe avec un fond dégradé animé et une ombre douce */
+.nav {
+  background: linear-gradient(135deg, #2b5876, #4e4376, #2b5876); /* Dégradé bleu-violet */
+  background-size: 200% 200%; /* Permet l’animation du dégradé */
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  animation: gradientAnimation 8s ease infinite; /* Animation du dégradé */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Animation du dégradé */
+/* Syntaxe : @keyframes définit une animation */
+/* Rôle : Fait défiler le dégradé pour un effet dynamique */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animation pour la navbar au chargement */
+/* Syntaxe : @keyframes définit une animation */
+/* Rôle : Fait apparaître la navbar avec un effet de fondu et glissement */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Applique l’animation au chargement */
+/* Syntaxe : animation utilise fadeInDown */
+/* Rôle : Anime la navbar à l’apparition */
+.nav {
+  animation: fadeInDown 0.7s ease-out;
+}
+
+/* Liste des liens */
+/* Syntaxe : .nav ul définit les styles de la liste */
+/* Rôle : Centre les liens horizontalement avec un espacement élégant */
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
+
+/* Liens de navigation */
+/* Syntaxe : .nav li a définit les styles des liens */
+/* Rôle : Style les liens avec une typographie moderne et des effets fluides */
+.nav li a {
+  color: #f5f7fa;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+/* Effet de survol pour les liens */
+/* Syntaxe : .nav li a:hover définit les styles au survol */
+/* Rôle : Ajoute un fond semi-transparent, un zoom, et une couleur vive */
+.nav li a:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Effet de vague sous les liens */
+/* Syntaxe : .nav li a::before définit un pseudo-élément */
+/* Rôle : Crée une vague animée qui se déploie au survol */
+.nav li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ffffff, #a1c4fd); /* Dégradé pour la vague */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Animation de la vague au survol */
+/* Syntaxe : .nav li a:hover::before définit l’animation */
+/* Rôle : Déploie la vague de droite à gauche */
+.nav li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Bouton de déconnexion */
+/* Syntaxe : .nav li button définit les styles du bouton */
+/* Rôle : Style le bouton avec un dégradé vert et un effet 3D */
+.nav li button {
+  padding: 12px 30px;
+  background: linear-gradient(45deg, #28a745, #218838); /* Dégradé vert vibrant */
+  color: #ffffff;
+  border: none;
+  border-radius: 50px; /* Bordures très arrondies */
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Effet au survol du bouton */
+/* Syntaxe : .nav li button:hover définit les styles au survol */
+/* Rôle : Soulève le bouton, intensifie l’ombre, et éclaircit le dégradé */
+.nav li button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #34c759, #28a745);
+}
+
+/* Effet au clic du bouton */
+/* Syntaxe : .nav li button:active définit les styles au clic */
+/* Rôle : Simule un enfoncement avec une ombre réduite */
+.nav li button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}

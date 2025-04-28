@@ -1,0 +1,11 @@
+# Exclut les dossiers node_modules
+node_modules/
+
+# Exclut les fichiers d’environnement
+.env
+
+# Exclut les dossiers de build (frontend)
+frontend/build/
+
+# Exclut les fichiers temporaires
+*.log
