@@ -7,7 +7,7 @@ import axios from 'axios';
 // Retour : Instance Axios
 // Rôle : Simplifie les requêtes vers le backend
 const instance = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
   withCredentials: true, // Envoie les cookies (nécessaire pour CSRF)
 });
 

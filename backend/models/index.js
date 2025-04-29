@@ -2,33 +2,19 @@
 // Syntaxe : require('sequelize') importe le module Sequelize
 const { Sequelize, DataTypes } = require('sequelize');
 
-// Importe dotenv pour charger les variables d’environnement
-// Syntaxe : require('dotenv') importe le module dotenv
-const dotenv = require('dotenv');
-
-// Charge les variables d’environnement depuis .env
-// Syntaxe : dotenv.config avec chemin absolu
-// Rôle : Accède aux variables DB_HOST, DB_USER, etc.
-dotenv.config({ path: '/home/seblin/todo-list/.env' });
-
 // Crée une instance Sequelize pour PostgreSQL
 // Arguments :
-// - Nom de la base : process.env.DB_NAME (todolist)
-// - Utilisateur : process.env.DB_USER (postgres)
-// - Mot de passe : process.env.DB_PASSWORD (postgres123)
-// - Options : hôte, port, dialecte
+// - URL : process.env.DATABASE_URL (ex. : postgres://postgres:postgres123@postgres:5432/todolist)
+// - Options : dialecte, désactivation SSL, logs
 // Syntaxe : new Sequelize crée une connexion
-// Rôle : Connecte l’application à la base PostgreSQL
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: 'postgres',
-  }
-);
+// Rôle : Connecte l’application à la base PostgreSQL via l’URL de docker-compose
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: false, // Désactive SSL pour la connexion locale
+  },
+  logging: console.log, // Active les logs SQL pour déboguer
+});
 
 // Définit l’objet db pour stocker les modèles et l’instance
 // Syntaxe : objet littéral
